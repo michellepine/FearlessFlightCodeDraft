@@ -351,7 +351,7 @@ function Bullet() {
   //tells whether the shooting sound is playing
   this.shooting = false;
   //loads a new shooting sound
-  this.bang = new SoundFile(Fearless_Flight.this, "gun.mp3");
+  this.bang = loadSound("data/gun.mp3");
   this.x = player.x - planeWidth/2;
   this.y= player.y;
   this.isDead = false;
@@ -366,14 +366,14 @@ function Bullet() {
     rect(this.x, this.y, 10, 5);
     stroke(0);
     //controls how long the "bang" of the bullet lasts
-    if (this.x > 400 && !shooting) {
-      bang.play();
-      shooting = true;
+    if (this.x > 400 && !this.shooting) {
+      this.bang.play();
+      this.shooting = true;
     }
     //stops the "bang" if it's playing long enough
-    if (this.x < 400 && shooting) {
-      bang.stop();
-      shooting = false;
+    if (this.x < 400 && this.shooting) {
+      this.bang.stop();
+      this.shooting = false;
     }
   }
   
@@ -419,7 +419,7 @@ function Bullets() {
 
   //gives the size of the bullet array
   this.sizeB = function(){
-    return b.length;
+    return this.b.length;
   }
   
   //fires bullets, aka adds a new Bullet to the ArrayList
@@ -696,15 +696,15 @@ function Explosion() {
   
   //displays the explosion
   this.display = function() {
-    if (show) {
-      if (bird) {
+    if (this.show) {
+      if (this.bird) {
         //go through each frame at bird size
-        image(expSprites[this.counts], this.x, this.y, birdWidth * 2, birdHeight * 2);
+        image(this.sprites[this.counts], this.x, this.y, birdWidth * 2, birdHeight * 2);
         boom.play();
       }
       else {
         //go through each frame at plane size
-        image(expSprites[this.counts], this.x, this.y, planeWidth * 2, planeHeight * 2);
+        image(this.sprites[this.counts], this.x, this.y, planeWidth * 2, planeHeight * 2);
         boom.play();
       }
       this.counts++;
