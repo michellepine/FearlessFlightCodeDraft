@@ -809,13 +809,13 @@ function draw() {
 
 //chooses the plane color
 function whatColor() {
-  if (red) {
+  if (red1) {
     myPlane = redPlane;
   }
-  else if (blue) {
+  else if (blue1) {
     myPlane = bluePlane;
   }
-  else if (green) {
+  else if (green1) {
     myPlane = greenPlane;
   }
 }
