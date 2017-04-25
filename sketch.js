@@ -809,11 +809,11 @@ function keyPressed() {
     loop1.play();
     state = 1;
   }
-  else if (state == 1 && keyCode == RIGHT) {
+  else if (state == 1 && keyCode == RIGHT_ARROW) {
     //brings the user to the next page of the tutorial
     tutorial = t2;
   }
-  else if (state == 1 && keyCode == LEFT) {
+  else if (state == 1 && keyCode == LEFT_ARROW) {
     //brings the user to previous page of the tutorial
     tutorial = t1;
   }
