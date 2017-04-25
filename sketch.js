@@ -451,7 +451,7 @@ function Bullets() {
           e.bang.stop();
           e.shooting = false;
         }
-        e.update();
+         e.x = e.x - 5;
       }
     }
   }
