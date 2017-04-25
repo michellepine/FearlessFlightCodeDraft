@@ -336,6 +336,10 @@ function Player() {
       && (other.y <= thisLocUpperY));
     return col1 || col2;
   }
+  
+  this.die = function() {
+    this.isDead = true;
+  }
 }
 
 
