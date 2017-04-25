@@ -663,7 +663,7 @@ function Enemies() {
           }
         }
         //checks each enemy for a collision with any of the bullets
-        bullets.b.forEach(function(obj) {
+        bullets.b.forEach(function(bull) {
           if (bull.collision(obj) 
             //to afunction multiple collisions with the same object, the first object with which 
             //the object collides is saved
