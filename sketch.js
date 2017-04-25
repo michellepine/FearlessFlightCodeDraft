@@ -1034,10 +1034,10 @@ function menu() {
       image(choseMenu[6], width/2, height/2, 600, 800);
     }
     if (noBirds) {
-      image(choseMenu(7], width/2, height/2, 600, 800);
+      image(choseMenu[7], width/2, height/2, 600, 800);
     }
     if (noPlanes) {
-      image(choseMenu(8), width/2, height/2, 600, 800);
+      image(choseMenu[8], width/2, height/2, 600, 800);
     }
   }
 }
