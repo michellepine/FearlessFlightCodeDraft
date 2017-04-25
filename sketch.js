@@ -277,7 +277,7 @@ function preload() {
 //------------------------------------------------***FILTERING***----------------------------------------------
 //filters based on whether the flying is gone
 function isGone2(flying) {
-  return flying.isGone();
+  return !(flying.isGone());
 }
 
 // -------------------------------------------------***SETUP***-------------------------------------------------
@@ -427,7 +427,7 @@ function Bullets() {
   
   //removes all bullets that are now offscreen
   this.removeGone = function() {
-    this.b.filter(isGone2);  
+    this.b = this.b.filter(isGone2);  
   }
   
   //displays all bullets
@@ -619,7 +619,7 @@ function Enemies() {
 
   //removes all enemies that are now off-screen
   this.removeGone = function() {
-    this.f.filter(isGone2);
+    this.f = this.f.filter(isGone2);
   }
 
   //displays and updates all
