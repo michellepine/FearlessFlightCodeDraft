@@ -734,7 +734,7 @@ function draw() {
   }
   else if (state == 0) { //menu
     menu();
-    loop.stop();
+    loop1.stop();
     whatColor();
   }
   else if (state == 1) { //tutorial
@@ -950,9 +950,9 @@ function reset() {
   countMax = 20; 
   count = 0;
   easing = 0.05;
-  red = true;
-  green = false;
-  blue = false;
+  red1 = true;
+  green1 = false;
+  blue1 = false;
   noBirds = false;
   noPlanes = false;
   easy = true;
@@ -1050,21 +1050,21 @@ function mousePressed() {
   if (state == 0) {
     if (redP.within(mouseX, mouseY)) {
       choseMenu = redMenu;
-      red = true;
-      green = false;
-      blue = false;
+      red1 = true;
+      green1 = false;
+      blue1 = false;
       click.play();
     } else if (greenP.within(mouseX, mouseY)) {
-      choseMenu= greenMenu;
-      green = true;
-      red = false;
-      blue = false;
+      choseMenu = greenMenu;
+      green1 = true;
+      red1 = false;
+      blue1 = false;
       click.play();
     } else if (blueP.within(mouseX, mouseY)) {
-      choseMenu= blueMenu;
-      blue = true; 
-      red = false;
-      green = false;
+      choseMenu = blueMenu;
+      blue1 = true; 
+      red1 = false;
+      green1 = false;
       click.play();
     } else if (easyB.within(mouseX, mouseY)) {
       easy = true;
