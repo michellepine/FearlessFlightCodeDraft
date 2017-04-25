@@ -722,6 +722,7 @@ function Explosion() {
 function draw() {
   clear(); //clear the screen each frame, to increase speed
   //random numbers to determine spawning
+  bg.playbackRate = speed;
   var r = random(0, 4); 
   var r2 = random(0, countMax);
   image(bg, -550, 0, 1700, 800);
