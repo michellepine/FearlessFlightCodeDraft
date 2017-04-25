@@ -285,7 +285,8 @@ function isGone2(flying) {
 //sets up the canvas, loads all content from the data folder
 function setup() {
   createCanvas(600, 800);
-  
+  bg.play();
+  bg.loop();
   if (state == -1 && main) {
     main.play();
   }
@@ -724,10 +725,6 @@ function draw() {
   var r = random(0, 4); 
   var r2 = random(0, countMax);
   image(bg, -550, 0, 1700, 800);
-  if (state == -1 && !bg.paused && !bg.ended && !(bg.currentTime > 0)) { //keeps the background moving if the game is not won
-    bg.play();
-    bg.loop();
-  }
   imageMode(CENTER);
   if (state == -1) { //opening title
     title();
