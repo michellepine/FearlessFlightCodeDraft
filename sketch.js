@@ -173,6 +173,12 @@ var click;
 
 
 function preload() {
+  bg = createVideo('data/vid.mp4'); // the moving clouds and ocean in the background
+  main = loadSound('data/mainTitle1.mp3');
+  loop1 = loadSound('data/sLoop1.mp3');
+  shoot = loadSound('data/gun.mp3');
+  boom = loadSound('data/explosion.mp3');
+  click = loadSound('data/click.mp3');
   island = loadImage("data/island.png");
   gameover = loadImage("data/gameover.png");
   gamewon = loadImage("data/youwon.png");
@@ -205,7 +211,7 @@ function preload() {
   t1 = loadImage("data/t1.png");
   t2 = loadImage("data/t2.png");
   tutorial = t1;
-  
+  lines = loadStrings("HighScores.txt");
   redEasyBoth = loadImage("data/redEasyBoth.png");
   redEasyPlanes = loadImage("data/redEasyPlanes.png");
   redEasyBirds = loadImage("data/redEasyBirds.png");
@@ -278,16 +284,10 @@ function isGone2(flying) {
 //sets up the canvas, loads all content from the data folder
 function setup() {
   createCanvas(600, 800);
-  bg = createVideo('data/vid.mp4'); // the moving clouds and ocean in the background
-  main = loadSound('data/mainTitle1.mp3');
-  loop1 = loadSound('data/sLoop1.mp3');
-  shoot = loadSound('data/gun.mp3');
-  boom = loadSound('data/explosion.mp3');
-  click = loadSound('data/click.mp3');
+  
   if (state == -1) {
     main.play();
   }
-  lines = loadStrings("HighScores.txt");
 }
 
 
