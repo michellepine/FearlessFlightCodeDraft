@@ -626,7 +626,7 @@ function Enemies() {
 
   //displays and updates all
   //checks for collisions with bullets, the player, for all enemies
-  function runEnemies() {
+  this.runEnemies = function() {
     if (this.f!== null) {
       //checks each enemy for collisions with the player
       this.f.forEach(function(obj) {
