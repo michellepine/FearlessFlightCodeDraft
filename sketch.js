@@ -797,7 +797,6 @@ function draw() {
     }
     if (endGame) { //end the game
       bg.stop();
-      addNewScore(); //add score to high scores (if it is high enough)
       state = 4;
     }
   }
@@ -904,12 +903,6 @@ function gameOver() {
   imageMode(CENTER);
   text("YOUR SCORE: " + score, width/2, height/2 + 20);
   textSize(20);
-  text("HIGH SCORES", width/2, height/2 + 40);
-  for (var i = 0; i < lines.length; i++)
-  {
-    var num = i + 1;
-    text(num + ". " + lines[i], width/2, height/2 + 70 + 20*i);
-  }
   image(gameover, width/2, height/2);
 }
 
@@ -925,12 +918,6 @@ function gameWon() {
   imageMode(CENTER);
   text("YOUR SCORE: " + score, width/2, height/2 + 20);
   textSize(20);
-  text("HIGH SCORES", width/2, height/2 + 40);
-  for (var i = 0; i < lines.length; i++)
-  {
-    var num = i + 1;
-    text(num + ". " + lines[i], width/2, height/2 + 70 + 20*i);
-  }
   image(gamewon, width/2, height/2);
 }
 
@@ -942,7 +929,6 @@ function gameWon() {
 function gameplay(r, r2) {
   if (player.isDead) {
     //ends the game if the player has collided with something
-    addNewScore();
     state = 3;
   }
   //spawns the enemies based on the generated random numbers
