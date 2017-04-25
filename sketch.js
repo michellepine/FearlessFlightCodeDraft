@@ -462,6 +462,7 @@ function Bird() {
   this.isDead = false;
   this.w = birdWidth;
   this.h = birdHeight;
+  this.thisExplode = new Explosion();
 
   
   //displays the bird
@@ -674,8 +675,8 @@ function Enemies() {
           if (bull.collision(obj) 
             //to afunction multiple collisions with the same object, the first object with which 
             //the object collides is saved
-            && (bull.alreadyTaken == null || bull.alreadyTaken.equals(obj))
-            && (obj.thisHit == null || obj.thisHit.equals(bull))) {
+            && (bull.alreadyTaken == null || bull.alreadyTaken == obj)
+            && (obj.thisHit == null || obj.thisHit == bull)) {
             bull.alreadyTaken = obj;
             obj.thisHit = bull;
             //show the object exploding
