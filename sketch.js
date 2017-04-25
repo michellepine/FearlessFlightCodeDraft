@@ -446,7 +446,11 @@ function Bullets() {
   
   
 }
-
+// --------------------------------------------***RANDOM NUMBER GENERATION**-------------------------------------------------
+//to return a random number in the specified range
+function randNum(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 // -------------------------------------------------***BIRD CLASS**-------------------------------------------------
 //to represent a bird
@@ -455,7 +459,7 @@ function Bird() {
   this.aCount = 0; //the count used to move through the frames
   this.pic = birdImg0;
   this.x = -birdWidth;
-  this.y = random(birdWidth/2, height - birdWidth/2);
+  this.y = randNum(birdWidth/2, height - birdWidth/2);
   this.isDead = false;
   this.w = birdWidth;
   this.h = birdHeight;
@@ -523,7 +527,7 @@ function Plane() {
   this.explodeThis = false;
   this.pic = badPlane;
   this.x = -planeWidth;
-  this.y = random(planeWidth/2, height - planeHeight/2);
+  this.y = randNum(planeWidth/2, height - planeHeight/2);
   this.isDead = false;
   this.w = planeWidth;
   this.h = planeHeight;
@@ -723,8 +727,8 @@ function draw() {
   clear(); //clear the screen each frame, to increase speed
   //random numbers to determine spawning
   bg.playbackRate = speed;
-  var r = random(0, 4); 
-  var r2 = random(0, countMax);
+  var r = randNum(0, 4); 
+  var r2 = randNum(0, countMax);
   image(bg, -550, 0, 1700, 800);
   imageMode(CENTER);
   if (state == -1) { //opening title
@@ -1116,7 +1120,7 @@ function Island() {
   this.display = function() {
     if (this.show) {
       imageMode(CORNER);
-      image(island, x, 0);
+      image(island, this.x, 0);
       imageMode(CENTER);
     }
   }
