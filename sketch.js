@@ -174,6 +174,7 @@ var click;
 
 function preload() {
   bg = createVideo('data/vid.mp4'); // the moving clouds and ocean in the background
+  bg.hide();
   main = loadSound('data/mainTitle1.mp3');
   loop1 = loadSound('data/sLoop1.mp3');
   shoot = loadSound('data/gun.mp3');
