@@ -285,6 +285,7 @@ function isGone2(flying) {
 //sets up the canvas, loads all content from the data folder
 function setup() {
   createCanvas(600, 800);
+  frameRate(30);
   bg.play();
   bg.loop();
   if (state == -1 && main) {
