@@ -1009,35 +1009,35 @@ function addNewScore() {
 function menu() {
   if (easy) {
     if (!noBirds && !noPlanes) {
-      image(choseMenu.get(0), width/2, height/2, 600, 800);
+      image(choseMenu[0], width/2, height/2, 600, 800);
     }
     if (noBirds) {
-      image(choseMenu.get(1), width/2, height/2, 600, 800);
+      image(choseMenu[1], width/2, height/2, 600, 800);
     }
     if (noPlanes) {
-      image(choseMenu.get(2), width/2, height/2, 600, 800);
+      image(choseMenu[2], width/2, height/2, 600, 800);
     }
   }
   if (med) {
     if (!noBirds && !noPlanes) {
-      image(choseMenu.get(3), width/2, height/2, 600, 800);
+      image(choseMenu[3], width/2, height/2, 600, 800);
     }
     if (noBirds) {
-      image(choseMenu.get(4), width/2, height/2, 600, 800);
+      image(choseMenu[4], width/2, height/2, 600, 800);
     }
     if (noPlanes) {
-      image(choseMenu.get(5), width/2, height/2, 600, 800);
+      image(choseMenu[5], width/2, height/2, 600, 800);
     }
   }
   if (hard) {
     if (!noBirds && !noPlanes) {
-      image(choseMenu.get(6), width/2, height/2, 600, 800);
+      image(choseMenu[6], width/2, height/2, 600, 800);
     }
     if (noBirds) {
-      image(choseMenu.get(7), width/2, height/2, 600, 800);
+      image(choseMenu(7], width/2, height/2, 600, 800);
     }
     if (noPlanes) {
-      image(choseMenu.get(8), width/2, height/2, 600, 800);
+      image(choseMenu(8), width/2, height/2, 600, 800);
     }
   }
 }
