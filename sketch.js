@@ -360,7 +360,7 @@ function Bullet() {
   
   
   //displays the bullet
-  this.displayBullet = function() {
+  this.display = function() {
     fill(255, 255, 0);
     stroke(255, 255, 0);
     rect(this.x, this.y, 10, 5);
@@ -435,24 +435,10 @@ function Bullets() {
   //displays all bullets
   this.displayAll = function() {
     if (this.b!== null) {
-      let iterator = this.b.entries();
-      for (let e of iterator) {
-        fill(255, 255, 0);
-        stroke(255, 255, 0);
-        rect(e.x, e.y, 10, 5);
-        stroke(0);
-        //controls how long the "bang" of the bullet lasts
-        if (e.x > 400 && !e.shooting) {
-          e.bang.play();
-          e.shooting = true;
-        }
-        //stops the "bang" if it's playing long enough
-        if (e.x < 400 && e.shooting) {
-          e.bang.stop();
-          e.shooting = false;
-        }
-         e.x = e.x - 5;
-      }
+       bullets.b.forEach(function(bull) {
+         bull.display();
+         bull.update();
+      })
     }
   }
   
@@ -530,6 +516,17 @@ function Bird() {
     return (this.x >= 600 + planeWidth) || this.isDead;
   }
   
+  //sets the explosion to the correct coordinates
+  this.explodeE = function(die) {
+    this.thisExplode.change(this, die);
+  }
+  
+  //gets the count of the explosion
+  this.getCount = function() {
+    return this.thisExplode.count;
+  }
+
+  
 }
 
 
@@ -594,6 +591,16 @@ function Plane() {
   //determines if this Flying is offscreen
   this.isGone = function() {
     return (this.x >= 600 + planeWidth) || this.isDead;
+  }
+  
+  //sets the explosion to the correct coordinates
+  this.explodeE = function(die) {
+    this.thisExplode.change(this, die);
+  }
+  
+  //gets the count of the explosion
+  this.getCount = function() {
+    return this.thisExplode.count;
   }
 
 }
@@ -672,16 +679,12 @@ function Enemies() {
             bull.alreadyTaken = obj;
             obj.thisHit = bull;
             //show the object exploding
-            obj.thisExplode.x = obj.x;
-            obj.thisExplode.y = obj.y;
-            obj.thisExplode.show = true;
-            obj.thisExplode.bird = (obj instanceof Bird);
-            obj.thisExplode.display();
+            obj.explodeE(false);
             //once the explosion is done, kill the object
             //and the bullet
-            if (obj.thisExplode.count == 4) {
+            if (obj.getCount() == 4) {
               obj.die();
-              obj.thisExplode.show = false;
+              obj.explodeE(true);
               bull.hit = true;
       
             }
@@ -729,7 +732,20 @@ function Explosion() {
         
       } 
     }
-  }  
+  } 
+  
+  //sets the explosion to the correct coordinates
+  this.change = function(obj, die) {
+    if (!die) {
+      this.x = obj.x;
+      this.y = obj.y;
+      this.show = true;
+      this.bird = obj.w == birdWidth;
+      this.display()
+    }
+    if (die) {
+      this.show = false;
+  }
 }
 
 
