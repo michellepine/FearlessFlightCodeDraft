@@ -1116,7 +1116,7 @@ function Island() {
 
   //shows the island
   this.display = function() {
-    if (show) {
+    if (this.show) {
       imageMode(CORNER);
       image(island, x, 0);
       imageMode(CENTER);
@@ -1125,7 +1125,7 @@ function Island() {
 
   //updates the x coordinate of the island, ends the game if the island reaches its maximum x coord
   this.update = function() {
-    if (show && this.x <= 0) {
+    if (this.show && this.x <= 0) {
       if (easy) {
         this.x = this.x + 2;
       } else if (med) {
@@ -1133,7 +1133,7 @@ function Island() {
       } else if (hard) {
         this.x = this.x + 6;
       }
-    } else if (show && this.x >= 0) {
+    } else if (this.show && this.x >= 0) {
       endGame = true;
     }
   }
