@@ -437,7 +437,20 @@ function Bullets() {
     if (this.b!== null) {
       let iterator = this.b.entries();
       for (let e of iterator) {
-        e.displayBullet();
+        fill(255, 255, 0);
+        stroke(255, 255, 0);
+        rect(e.x, e.y, 10, 5);
+        stroke(0);
+        //controls how long the "bang" of the bullet lasts
+        if (e.x > 400 && !e.shooting) {
+          e.bang.play();
+          e.shooting = true;
+        }
+        //stops the "bang" if it's playing long enough
+        if (e.x < 400 && e.shooting) {
+          e.bang.stop();
+          e.shooting = false;
+        }
         e.update();
       }
     }
