@@ -752,7 +752,7 @@ function draw() {
       stopSpawn = true;
       
     }
-    if (enemies.f.size() == 0 && state == 2 && countMax <= 0) { //once all enemies are gone, show the island
+    if (enemies.f.length == 0 && state == 2 && countMax <= 0) { //once all enemies are gone, show the island
       is.show = true;
     }
     if (endGame) { //end the game
@@ -823,7 +823,7 @@ function keyPressed() {
   }
   else if (state == 2 || state == 1) {
     //allows the user to fire bullets
-    if (key == ' ' && bullets.b.size() < 8) {
+    if (key == ' ' && bullets.b.length < 8) {
       bullets.fire();
     }
   }
