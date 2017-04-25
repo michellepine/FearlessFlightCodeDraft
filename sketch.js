@@ -351,7 +351,7 @@ function Bullet() {
   //tells whether the shooting sound is playing
   this.shooting = false;
   //loads a new shooting sound
-  this.bang = loadSound("data/gun.mp3");
+  this.bang = shoot;
   this.x = player.x - planeWidth/2;
   this.y= player.y;
   this.isDead = false;
