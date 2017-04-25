@@ -285,7 +285,7 @@ function isGone2(flying) {
 function setup() {
   createCanvas(600, 800);
   
-  if (state == -1) {
+  if (state == -1 && main) {
     main.play();
   }
 }
