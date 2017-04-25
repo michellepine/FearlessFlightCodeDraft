@@ -357,6 +357,7 @@ function Bullet() {
   this.isDead = false;
   this.w = 10;
   this.h = 5;
+  this.thisExplode = new Explosion();
   
   
   //displays the bullet
