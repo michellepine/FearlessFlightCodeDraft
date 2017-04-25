@@ -523,7 +523,7 @@ function Bird() {
   
   //gets the count of the explosion
   this.getCount = function() {
-    return this.thisExplode.count;
+    return this.thisExplode.counts;
   }
 
   
@@ -600,7 +600,7 @@ function Plane() {
   
   //gets the count of the explosion
   this.getCount = function() {
-    return this.thisExplode.count;
+    return this.thisExplode.counts;
   }
 
 }
@@ -663,7 +663,7 @@ function Enemies() {
           player.thisExplode.show = true;
           player.thisExplode.bird = false;
           player.thisExplode.display();
-          if (player.thisExplode.count == 4) {
+          if (player.thisExplode.counts == 4) {
               player.thisExplode.show = false;
               player.die();
               
@@ -715,12 +715,12 @@ function Explosion() {
     if (this.show) {
       if (this.bird) {
         //go through each frame at bird size
-        image(this.sprites[this.counts], this.x, this.y, birdWidth * 2, birdHeight * 2);
+        image(expSprites[this.counts], this.x, this.y, birdWidth * 2, birdHeight * 2);
         boom.play();
       }
       else {
         //go through each frame at plane size
-        image(this.sprites[this.counts], this.x, this.y, planeWidth * 2, planeHeight * 2);
+        image(expSprites[this.counts], this.x, this.y, planeWidth * 2, planeHeight * 2);
         boom.play();
       }
       this.counts++;
