@@ -745,6 +745,7 @@ function Explosion() {
     }
     if (die) {
       this.show = false;
+    }
   }
 }
 
