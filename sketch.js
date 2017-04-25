@@ -724,9 +724,8 @@ function draw() {
   var r = random(0, 4); 
   var r2 = random(0, countMax);
   image(bg, -550, 0, 1700, 800);
-  if (state != 4) { //keeps the background moving if the game is not won
+  if (state == -1 && !bg.paused && !bg.ended && !(bg.currentTime > 0)) { //keeps the background moving if the game is not won
     bg.play();
-    bg.speed(speed);
     bg.loop();
   }
   imageMode(CENTER);
@@ -739,7 +738,10 @@ function draw() {
     whatColor();
   }
   else if (state == 1) { //tutorial
-    tutorial();
+    image(tutorial, width/2 - 75, height/2, 410, 610);
+    player.display();
+    bullets.displayAll();
+    bullets.removeGone();
   }
   else if (state == 2) { // runs the game
     gameplay(r, r2);
@@ -853,10 +855,7 @@ function title() {
 
 //creates the tutorial
 function tutorial() {
-  image(tutorial, width/2 - 75, height/2, 410, 610);
-  player.display();
-  bullets.displayAll();
-  bullets.removeGone();
+
 }
 
 //creates the game over screen
