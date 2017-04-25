@@ -467,7 +467,7 @@ function Bird() {
   
   //displays the bird
   this.display = function(){
-    image(birdSprites[this.aCount], this.x, this.y, this.w, this.h);
+    image(this.birdSprites[this.aCount], this.x, this.y, this.w, this.h);
     if (this.aCount == 13) {
       this.aCount = 0; //restarts the frames once they reach the end of the array
     }
